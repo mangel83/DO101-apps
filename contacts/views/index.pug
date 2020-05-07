@@ -14,8 +14,8 @@ block content
             thead
               tr
                 th ID
-                th First Name
-                th Last Name
+                th Nombre
+                th Apellido
                 th EMail
             tbody
               for contact in contacts
@@ -26,7 +26,7 @@ block content
                   td= contact.email
           else
             form(action="/seed", method="POST")
-                button(type="submit").btn.btn-primary Seed Data
+                button(type="submit").btn.btn-primary Cargar Datos
             br
             br
             tr
