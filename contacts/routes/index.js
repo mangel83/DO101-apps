@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { pgconn } = require('../db/config')
-const VERSION_APP = process.env.VERSION_APP || '';
+const VERSION_APP = process.env.VERSION || 'version no encontrada';
+console.log(VERSION_APP)
 
 /* Show home page. */
 router.get('/', function(req, res) {
