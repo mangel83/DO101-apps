@@ -12,12 +12,12 @@ router.get('/', function(req, res) {
   pgconn.query("SELECT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_name = 'contacts')", function(err,results) {
     if (err) {
       console.log(err);
-      res.render('index', { error: 'Database connection failure! '+err.stack, contacts: null, title: 'Contact List', version: VERSION_AP, hostname: req.hostname });
+      res.render('index', { error: 'Database connection failure! '+err.stack, contacts: null, title: 'Contact List', version: VERSION_APP, hostname: req.hostname });
     }
 
     // 'contacts' table does not exist. Show an empty table.
     else if(results.rows[0].exists == false) {
-      res.render('index', { error: null, contacts: null, title: 'Lista de contactos', version: VERSION_AP, hostname: req.hostname});
+      res.render('index', { error: null, contacts: null, title: 'Lista de contactos', version: VERSION_APP, hostname: req.hostname});
     }
 
     // 'contacts' table exists. Show the records.
@@ -25,12 +25,12 @@ router.get('/', function(req, res) {
       pgconn.query('SELECT * FROM contacts', function(err,results) {
         if (err) {
           console.log(err);
-          res.render('index', { error: 'Database connection failure! '+err.stack, contacts: null, title: 'Contact List', version: VERSION_AP, hostname: req.hostname  });
+          res.render('index', { error: 'Database connection failure! '+err.stack, contacts: null, title: 'Contact List', version: VERSION_APP, hostname: req.hostname  });
         }
         else {
           let contacts = results.rows;
           console.log(contacts);
-          res.render('index', { error: null, contacts: contacts, title: 'Lista de contactos' , version: VERSION_AP, hostname: req.hostname});
+          res.render('index', { error: null, contacts: contacts, title: 'Lista de contactos' , version: VERSION_APP, hostname: req.hostname});
         }
       })  
     }
