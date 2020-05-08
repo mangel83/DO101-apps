@@ -11,8 +11,10 @@
     "dotenv": "^8.1.0",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "ip": "^1.1.5",
     "morgan": "~1.9.1",
     "node-fetch": "^2.6.0",
+    "os": "^0.1.1",
     "package.json": "^2.0.1",
     "pug": "2.0.0-beta11"
   }
