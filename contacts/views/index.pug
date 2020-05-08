@@ -33,4 +33,11 @@ block content
               td
                 | No se han encontrados contactos
     br
-    p version: #{version}         
+    p = version    
+    - var title = "On Dogs: Man's Best Friend";
+    - var author = "enlore";
+    - var theGreat = "<span>escape!</span>";
+
+    h1= title
+    p Written with love by #{author}
+    p This will be safe: #{theGreat}    
