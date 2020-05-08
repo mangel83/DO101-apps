@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
+var ip = require("ip");
+var os = require("os");
 const { pgconn } = require('../db/config')
 const VERSION_APP = process.env.VERSION || 'version no encontrada';
 console.log(VERSION_APP)
-var ip = require("ip");
-var os = require("os");
 var host = os.hostname();
 
 /* Show home page. */
