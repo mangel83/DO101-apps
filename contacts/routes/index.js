@@ -6,6 +6,8 @@ console.log(VERSION_APP)
 
 /* Show home page. */
 router.get('/', function(req, res) {
+  console.log(req.hostname);
+  console.log(req.ip);
   // we first check if the 'contacts' table exists
   pgconn.query("SELECT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_name = 'contacts')", function(err,results) {
     if (err) {
@@ -37,6 +39,8 @@ router.get('/', function(req, res) {
 
 /* Seed test data */
 router.post('/seed', function(req,res) {
+  console.log(req.hostname);
+  console.log(req.ip);
   // drop 'contacts' table if already exists, and seed some test data
   pgconn.query("drop table if exists contacts; create table contacts(id serial primary key,firstname varchar(30) not null,lastname varchar(30) not null, email varchar(30) not null); insert into contacts(firstname, lastname, email) values ('Bilbo','Baggins','bilbo@theshire.com'),('Frodo','Baggins','frodo@theshire.com'),('Samwise','Gamgee','sam@theshire.com'),('Peregrin','Took','pippin@theshire.com'),('Meriadoc','Brandybuck','merry@theshire.com')",function(err,results) {
     if (err) {
